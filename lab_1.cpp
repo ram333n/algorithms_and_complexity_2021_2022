@@ -1,7 +1,9 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
+#include <fstream>
 
+//Клас для опису матриці
 class Matrix {
 private:
     double** matrix;
@@ -12,7 +14,7 @@ public:
         size_ = 0;
     }
 
-    Matrix(size_t new_size) {
+    Matrix(size_t new_size) {//конструктор, у якому виділяється пам'ять для матриці
         size_ = new_size;
         matrix = new double* [size_];
         for (size_t i = 0; i < size_; ++i) {
@@ -20,19 +22,19 @@ public:
         }
     }
 
-    double* operator[](size_t idx) {
+    double* operator[](size_t idx) {//оператор [] для доступу до елементів матриці
         return matrix[idx];
     }
 
-    const double* operator[](size_t idx) const {
+    const double* operator[](size_t idx) const { // константна версія оператора []
         return matrix[idx];
     }
 
-    size_t Size() const {
+    size_t Size() const { //метод для отримання порядку матриці
         return size_;
     }
 
-    ~Matrix() {
+    ~Matrix() { //деструктор для очищення пам'яті
         for (size_t i = 0; i < size_; ++i) {
             delete[] matrix[i];
         }
@@ -40,6 +42,7 @@ public:
     }
 };
 
+//Допоміжна функція, яка друкує матрицю в консоль
 void PrintMatrix(const Matrix& m) {
     for (size_t i = 0; i < m.Size(); ++i) {
         for (size_t j = 0; j < m.Size(); ++j) {
@@ -49,8 +52,9 @@ void PrintMatrix(const Matrix& m) {
     }
 }
 
+//Функція, яка виконує LU розклад, записуючи в l_matrix утворену нижньотрикутну матрицю, а в u_matrix - верхньотрикутну
 void GetLUDecomposition(const Matrix& matrix, Matrix& l_matrix, Matrix& u_matrix) {
-    int matrix_size = matrix.Size();/*sizeof(matrix) / sizeof(double)*/
+    int matrix_size = matrix.Size();
 
 	for (int i = 0; i < matrix_size; ++i) {
 		for (int j = 0; j < matrix_size; ++j) {
@@ -78,7 +82,7 @@ void GetLUDecomposition(const Matrix& matrix, Matrix& l_matrix, Matrix& u_matrix
 		}
 	}
 }
-
+//Функція для знаходження матриці, добуток на яку з нижньотрикутною матрицею lower дає матрицю rhs_matrix
 void SolveTheMatrixEquationForLower(const Matrix& lower, const Matrix& rhs_matrix, Matrix& result) {
     const int size = lower.Size();
     for (int k = 0; k < size; ++k) {
@@ -93,7 +97,7 @@ void SolveTheMatrixEquationForLower(const Matrix& lower, const Matrix& rhs_matri
     }
 }
 
-
+//Функція, яка виконує те ж саме, що й попередня, тільки матриця lower замінюється на верхньотрикутну upper
 void SolveTheMatrixEquationForUpper(const Matrix& upper, const Matrix& rhs_matrix, Matrix& result) {
     const int size = upper.Size();
     for (int k = 0; k < size; ++k) {
@@ -108,8 +112,7 @@ void SolveTheMatrixEquationForUpper(const Matrix& upper, const Matrix& rhs_matri
     }
 }
 
-//void MultilpyMatrices(const Matrix)
-
+//Функція для знаходження оберненої матриці
 void GetInvertedMatrix(const Matrix& matrix) {
     const int size = matrix.Size();
     Matrix inverse_matrix(size);
@@ -137,113 +140,21 @@ void GetInvertedMatrix(const Matrix& matrix) {
     std::cout << "-------------------------------------------" << std::endl;
 }
 
-
-
-
-//void PrintMatrix(double** m) {
-//	int matrix_size = sizeof(m) / sizeof(double);
-//
-//	for (size_t i = 0; i < matrix_size; ++i) {
-//		for (size_t j = 0; j < matrix_size; ++j) {
-//			std::cout << m[i][j] << " ";
-//		}
-//		std::cout << std::endl;
-//	}
-//}
-
 int main(){
 
-    {
-        Matrix m(2);
-        m[0][0] = sqrt(2);
-        m[0][1] = sqrt(3);
+    std::ifstream input;
+    int size;
+    input.open("input.txt");
 
-        m[1][0] = sqrt(12);
-        m[1][1] = 5;
+    input >> size;
+    Matrix m(size);
 
-        GetInvertedMatrix(m);
+    for (int i = 0; i < size; ++i) {
+        for (int j = 0; j < size; ++j) {
+            input >> m[i][j];
+        }
     }
 
-    {
-        Matrix m(3);
-        m[0][0] = 2.3;
-        m[0][1] = 4;
-        m[0][2] = 1;
-
-        m[1][0] = 4.5;
-        m[1][1] = 12;
-        m[1][2] = 10.333;
-
-        m[2][0] = 3;
-        m[2][1] = -4;
-        m[2][2] = -10.72;
-
-        GetInvertedMatrix(m);
-    }
-
-    {
-        Matrix m(4);
-
-        m[0][0] = 2;
-        m[0][1] = 3;
-        m[0][2] = 1;
-        m[0][3] = 5;
-
-        m[1][0] = 6;
-        m[1][1] = 13;
-        m[1][2] = 5;
-        m[1][3] = 19;
-
-        m[2][0] = 2;
-        m[2][1] = 19;
-        m[2][2] = 10;
-        m[2][3] = 23;
-
-        m[3][0] = 4;
-        m[3][1] = 10;
-        m[3][2] = 11;
-        m[3][3] = 31;
-
-
-        GetInvertedMatrix(m);
-    }
-
-    {
-        std::vector<double> source = {
-            10.3, 12, 6 ,-7, 5.05,
-            -10, 4.241 ,9, -134, 2,
-            7.41, 5.13, 1.33, 55, -2,
-            -2, 1, 3 ,5 ,6,
-            9.41, 23, 9.413, 22, 4
-        };
-
-        Matrix m(5);
-
-        for (size_t i = 0; i < source.size(); ++i) {
-            m[i / m.Size()][i % m.Size()] = source[i];
-        }   
-        GetInvertedMatrix(m);
-    }
-
-}
-
-
-
-
-//GetLUDecomposition(a, l, u);
-
-//PrintMatrix(a);
-//std::cout << std::endl;
-//PrintMatrix(l);
-//std::cout << std::endl;
-//PrintMatrix(u);
-
-//Matrix e(l.Size());
-
-//for (int i = 0; i < e.Size(); ++i) {
-//    e[i][i] = 1;
-//}
-
-//Matrix aboba(4);
-//SolveTheMatrixEquationForUpper(u, e, aboba);
-//PrintMatrix(aboba);
+    GetInvertedMatrix(m);
+    
+};
