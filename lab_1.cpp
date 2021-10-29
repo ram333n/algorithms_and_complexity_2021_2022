@@ -140,7 +140,7 @@ void GetInvertedMatrix(const Matrix& matrix) {
     std::cout << "-------------------------------------------" << std::endl;
 }
 
-int main(){
+int main_1(){
 
     std::ifstream input;
     int size;
@@ -155,6 +155,6 @@ int main(){
         }
     }
 
-    GetInvertedMatrix(m);
-    
+    GetInvertedMatrix(m);   
+    return 0;
 };
