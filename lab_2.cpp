@@ -51,10 +51,10 @@ int main() {
 		std::cin >> first >> second;
 
 		if (AreCyclicShift(first, second)) {
-			std::cout << "Shifted\n";
+			std::cout << "Yes\n";
 		}
 		else {
-			std::cout << "Not shifted\n";
+			std::cout << "No\n";
 		}
 	}
 }
