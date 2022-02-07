@@ -44,17 +44,17 @@ bool AreCyclicShift(const std::string& source, const std::string& shifted) {
 	return true;
 }
 
-int main() {
-	std::string first, second;
-	std::cout << "Enter strings\n";
-	while (true) {
-		std::cin >> first >> second;
-
-		if (AreCyclicShift(first, second)) {
-			std::cout << "Yes\n";
-		}
-		else {
-			std::cout << "No\n";
-		}
-	}
-}
+//int main() {
+//	std::string first, second;
+//	std::cout << "Enter strings\n";
+//	while (true) {
+//		std::cin >> first >> second;
+//
+//		if (AreCyclicShift(first, second)) {
+//			std::cout << "Yes\n";
+//		}
+//		else {
+//			std::cout << "No\n";
+//		}
+//	}
+//}

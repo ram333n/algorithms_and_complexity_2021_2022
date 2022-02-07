@@ -13,18 +13,33 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Semester 2">
+      <UniqueIdentifier>{edbe6305-28b5-46be-8561-e5142736d13d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Semester 2\Lab 1">
+      <UniqueIdentifier>{691b508f-8130-48d7-9c67-4fb88aad1aca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Semester 2\Lab 2">
+      <UniqueIdentifier>{487f2dbd-8019-4456-ad19-f52cdf1f8162}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Semester 1">
+      <UniqueIdentifier>{cf06f588-2341-40e2-8b34-0af06e9db4b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Data types">
+      <UniqueIdentifier>{d59b6e3f-2c76-4ece-bb01-7ce65fc56e24}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="lab_1.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Semester 2\lab_1.cpp">
+      <Filter>Source Files\Semester 2\Lab 1</Filter>
     </ClCompile>
-    <ClCompile Include="lab_2.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Semester 2\data_types.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="input.txt">
-      <Filter>Source Files</Filter>
-    </Text>
+    <ClInclude Include="Semester 2\data_types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
