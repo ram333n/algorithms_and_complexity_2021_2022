@@ -14,32 +14,46 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Source Files\Semester 2">
-      <UniqueIdentifier>{edbe6305-28b5-46be-8561-e5142736d13d}</UniqueIdentifier>
+      <UniqueIdentifier>{df5b916b-c672-459c-bd81-d9a03a77592a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Semester 2\Lab 1">
-      <UniqueIdentifier>{691b508f-8130-48d7-9c67-4fb88aad1aca}</UniqueIdentifier>
+      <UniqueIdentifier>{da6c1069-d611-4f41-aac9-672f722859f9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Semester 2\Lab 2">
-      <UniqueIdentifier>{487f2dbd-8019-4456-ad19-f52cdf1f8162}</UniqueIdentifier>
+      <UniqueIdentifier>{23fa7a50-0387-4016-a347-3378b7c76ef3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Semester 1">
-      <UniqueIdentifier>{cf06f588-2341-40e2-8b34-0af06e9db4b3}</UniqueIdentifier>
+      <UniqueIdentifier>{da9f39c2-38e8-4642-a339-8b4ccf2cc190}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Data types">
-      <UniqueIdentifier>{d59b6e3f-2c76-4ece-bb01-7ce65fc56e24}</UniqueIdentifier>
+    <Filter Include="Source Files\Semester 1\Lab 1">
+      <UniqueIdentifier>{c0d1a848-d442-4bb8-ac5d-22268ca73030}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Semester 1\Lab 2">
+      <UniqueIdentifier>{be3cd911-2a0d-43bb-a25c-b7f3b904000a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Semester 2\lab_1.cpp">
+    <ClCompile Include="sem1_lab_1.cpp">
+      <Filter>Source Files\Semester 1\Lab 1</Filter>
+    </ClCompile>
+    <ClCompile Include="sem1_lab_2.cpp">
+      <Filter>Source Files\Semester 1\Lab 2</Filter>
+    </ClCompile>
+    <ClCompile Include="sem2_lab_1.cpp">
       <Filter>Source Files\Semester 2\Lab 1</Filter>
     </ClCompile>
-    <ClCompile Include="Semester 2\data_types.cpp">
-      <Filter>Header Files</Filter>
+    <ClCompile Include="data_types.cpp">
+      <Filter>Source Files\Semester 2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Semester 2\data_types.h">
-      <Filter>Header Files</Filter>
+    <Text Include="input.txt">
+      <Filter>Source Files\Semester 1\Lab 1</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="data_types.h">
+      <Filter>Source Files\Semester 2</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
