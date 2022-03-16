@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_types.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="sem1_lab_1.cpp" />
     <ClCompile Include="sem1_lab_2.cpp" />
     <ClCompile Include="sem2_lab_1.cpp" />
@@ -129,6 +130,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

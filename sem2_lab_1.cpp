@@ -118,18 +118,18 @@ void Assert(bool t) {
 	}
 }
 
-int main() {
-	const vector<vector<ComplexNumber>> v {
-		{{3,2}, {5, -4}},
-		{{-2,-1}},
-		{{7,7},{-2,10},{1,3}}
-	};
-	HashSet<VectorHash> hash_set(v);
-	hash_set.Print();
-
-	Assert(!hash_set.Has({ { 5342, 6345 } }));
-	Assert(hash_set.Has({ {3,2}, {5, -4} }));
-	Assert(!hash_set.Has({ { 0, 1 } }));
-	Assert(hash_set.Has({ {-2,-1} }));
-	Assert(hash_set.Has({ {7,7},{-2,10},{1,3} }));
-}
+//int main() {
+//	const vector<vector<ComplexNumber>> v {
+//		{{3,2}, {5, -4}},
+//		{{-2,-1}},
+//		{{7,7},{-2,10},{1,3}}
+//	};
+//	HashSet<VectorHash> hash_set(v);
+//	hash_set.Print();
+//
+//	Assert(!hash_set.Has({ { 5342, 6345 } }));
+//	Assert(hash_set.Has({ {3,2}, {5, -4} }));
+//	Assert(!hash_set.Has({ { 0, 1 } }));
+//	Assert(hash_set.Has({ {-2,-1} }));
+//	Assert(hash_set.Has({ {7,7},{-2,10},{1,3} }));
+//}

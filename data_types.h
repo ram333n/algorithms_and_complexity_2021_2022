@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <numeric>
 
 class ComplexNumber {
 public:
@@ -14,3 +15,20 @@ private:
 
 bool operator==(ComplexNumber lhs, ComplexNumber rhs);//оператор == для порівняння
 std::ostream& operator<<(std::ostream& os, ComplexNumber number); //оператор << для виведення у консоль
+
+class RationalNumber {
+public:
+	RationalNumber();
+	RationalNumber(int numerator, int denominator);
+
+	int GetNumerator() const;
+	int GetDenominator() const;
+
+	friend RationalNumber operator-(RationalNumber lhs, RationalNumber rhs);
+	friend bool operator<(RationalNumber lhs, RationalNumber rhs);
+	friend bool operator==(RationalNumber lhs, RationalNumber rhs);
+	friend std::ostream& operator<<(std::ostream& os, RationalNumber num);
+
+private:
+	int numerator_, denominator_;
+};

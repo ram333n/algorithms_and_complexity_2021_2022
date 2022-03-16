@@ -21,3 +21,48 @@ std::ostream& operator<<(std::ostream& os, ComplexNumber number) {
 	os << number.GetRealPart() << " " << sign << " " << abs(number.GetImaginaryPart()) << "i";
 	return os;
 }
+
+
+RationalNumber::RationalNumber() : numerator_(0), denominator_(1) {}
+
+RationalNumber::RationalNumber(int numerator, int denominator) {
+	if (denominator == 0) {
+		throw std::invalid_argument("Denominator is 0");
+	}
+
+	if (numerator == 0) {
+		numerator_ = 0;
+		denominator_ = 1;
+	}
+	else {
+		int gcd = std::gcd(numerator, denominator);
+		bool is_positive = (numerator > 0 && denominator > 0) || (numerator < 0 && denominator < 0);
+		denominator_ = std::abs(denominator) / gcd;
+		numerator_ = (is_positive ? 1 : -1) * std::abs(numerator) / gcd;
+	}
+}
+
+int RationalNumber::GetNumerator() const {
+	return numerator_;
+}
+
+int RationalNumber::GetDenominator() const {
+	return denominator_;
+}
+
+RationalNumber operator-(RationalNumber lhs, RationalNumber rhs) {
+	return { lhs.numerator_ * rhs.denominator_ - rhs.numerator_ * lhs.denominator_,rhs.denominator_ * lhs.denominator_ };
+}
+
+bool operator<(RationalNumber lhs, RationalNumber rhs) {
+	return (lhs - rhs).numerator_ < 0;
+}
+
+bool operator==(RationalNumber lhs, RationalNumber rhs) {
+	return (lhs.numerator_ == rhs.numerator_) && (lhs.denominator_ == rhs.denominator_);
+}
+
+std::ostream& operator<<(std::ostream& os, RationalNumber num) {
+	os << num.numerator_ << '/' << num.denominator_;
+	return os;
+}
