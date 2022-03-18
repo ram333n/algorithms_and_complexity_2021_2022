@@ -58,6 +58,10 @@ bool operator<(RationalNumber lhs, RationalNumber rhs) {
 	return (lhs - rhs).numerator_ < 0;
 }
 
+bool operator<=(RationalNumber lhs, RationalNumber rhs) {
+	return (lhs - rhs).numerator_ <= 0;
+}
+
 bool operator==(RationalNumber lhs, RationalNumber rhs) {
 	return (lhs.numerator_ == rhs.numerator_) && (lhs.denominator_ == rhs.denominator_);
 }

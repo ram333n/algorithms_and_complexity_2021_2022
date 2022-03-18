@@ -26,7 +26,9 @@
     <ClCompile Include="sem2_lab_1.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="binomial_heap.h" />
     <ClInclude Include="data_types.h" />
+    <ClInclude Include="test_runner.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />

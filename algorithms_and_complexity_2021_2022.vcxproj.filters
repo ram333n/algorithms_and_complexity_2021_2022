@@ -58,5 +58,11 @@
     <ClInclude Include="data_types.h">
       <Filter>Source Files\Semester 2</Filter>
     </ClInclude>
+    <ClInclude Include="binomial_heap.h">
+      <Filter>Source Files\Semester 2\Lab 2</Filter>
+    </ClInclude>
+    <ClInclude Include="test_runner.h">
+      <Filter>Source Files\Semester 2\Lab 2</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
