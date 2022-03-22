@@ -1,5 +1,6 @@
 #pragma once
 #include "data_types.h"
+#include <stack>
 
 namespace Treap {
 	template<typename T>
@@ -154,18 +155,24 @@ namespace Treap {
 			return root;
 		}
 
-		void InorderPrintImpl(NodePtr current) const {
-			if (!current) {
-				return;
-			}
+		void InorderPrintImpl(NodePtr root) const {
+			std::stack<NodePtr> stack;
+			NodePtr current = root;
 
-			InorderPrintImpl(current->left);
-			if (current == this->root) {
-				std::cout << "Root";
-			}
+			while (!stack.empty() || current) {
+				while (current) {
+					stack.push(current);
+					current = current->left;
+				}
 
-			std::cout << "(" << current->value << ", " << current->priority << ") ";
-			InorderPrintImpl(current->right);
+				current = stack.top();
+				stack.pop();
+				if (current == root) {
+					std::cout << "Root";
+				}
+				std::cout << "(" << current->value << ", " << current->priority << ") ";
+				current = current->right;
+			}
 		}
 
 		int HeightImpl(NodePtr current) const {
