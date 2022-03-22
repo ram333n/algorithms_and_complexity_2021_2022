@@ -29,6 +29,7 @@
     <ClInclude Include="binomial_heap.h" />
     <ClInclude Include="data_types.h" />
     <ClInclude Include="test_runner.h" />
+    <ClInclude Include="treap.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />

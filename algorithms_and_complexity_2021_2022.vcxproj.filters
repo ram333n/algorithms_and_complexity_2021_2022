@@ -64,5 +64,8 @@
     <ClInclude Include="test_runner.h">
       <Filter>Source Files\Semester 2\Lab 2</Filter>
     </ClInclude>
+    <ClInclude Include="treap.h">
+      <Filter>Source Files\Semester 2\Lab 2</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

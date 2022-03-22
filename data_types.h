@@ -26,8 +26,10 @@ public:
 
 	friend RationalNumber operator-(RationalNumber lhs, RationalNumber rhs);
 	friend bool operator<(RationalNumber lhs, RationalNumber rhs);
+	friend bool operator>(RationalNumber lhs, RationalNumber rhs);
 	friend bool operator<=(RationalNumber lhs, RationalNumber rhs);
 	friend bool operator==(RationalNumber lhs, RationalNumber rhs);
+	friend bool operator!=(RationalNumber lhs, RationalNumber rhs);
 	friend std::ostream& operator<<(std::ostream& os, RationalNumber num);
 
 private:
